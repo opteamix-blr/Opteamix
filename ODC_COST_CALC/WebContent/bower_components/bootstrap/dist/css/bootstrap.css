@@ -5822,9 +5822,9 @@ button.close {
   height: 50px;
   overflow: scroll;
 }
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .modal-dialog {
-    width: 600px;
+    width: 885px;
     margin: 30px auto;
   }
   .modal-content {

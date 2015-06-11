@@ -57,6 +57,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#calculate").click(function(event) {
+    	prepareResouceData();
+    	$('#resourceCostsModal').modal('show');
     	calculateCosts(event);
     	$("#costs").show();
         $("#allCosts").show(1000);

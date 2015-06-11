@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ODC Cost Calculator</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<img class="imgcenter" src="../images/Opteamix-Logo-Sigature.jpg"
+					alt="Opteamix" title="Opteamix" height="50" align="middle">
+			</div>
+            <!-- /.navbar-header -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="https://www.opteamix.com/"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="calc.html"><i class="fa fa-calculator fa-fw"></i> ODC Cost Calculator </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header-odc">ODC Cost Calculator</h2>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row" id="odcModelSelectDiv">
+            	<div class="col-lg-12">
+	            	<h4>Offshore Development Center (ODC) offers a new, flexible engagement models for execution of projects.</h4>
+	            	<h4>which model do you prefer to go with?</h4>
+            	</div>
+            	<div class="row show-grid">
+	                <div class="form-group col-lg-3">
+	                	<button type="button" id="mdButton" class="btn btn-primary btn-sm btn-block">Managed Delivery Model</button>
+	                </div>
+	                <div class="form-group col-lg-3">
+	            		<button type="button" id="riButton" class="btn btn-primary btn-sm btn-block">Resource Infusion</button>
+	                </div>
+	            </div>
+	            <div class="row show-grid">
+	                <div class="form-group col-lg-6">
+	                	<img src="../images/MDM.png" id="mdmImage" class="img-responsive" alt="Managed Delivery Model">
+	                </div>
+	                <div class="form-group col-lg-6">
+	            		<img src="../images/RIM.png" id="rimImage" class="img-responsive" alt="Resource Infusion">
+	                </div>
+	            </div>
+            </div>
+            <div class="row" id="mdmDiv" hidden="display: none;">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+			                    <div class="form-group col-lg-3 clearfix">Managed Delivery Model</div>
+	                            <div class="form-group col-lg-2 col-lg-offset-10 clearfix input-group" style="padding-right:10px;padding-left:10px">
+	                            	<button type="button" id="riDivButton" class="btn btn-sm btn-block">Resource Infusion</button>
+	                            </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                	<div class="well-white">
+                                    <form role="form">
+                                        <div class="form-group" align="center">
+                                        	<h4>Typical ODC Pyramid</h4>
+					            			<img alt="" src="../images/MD_ODC_PYRAMID.png" class="img-responsive">
+					            			<p align="left">Note: UAT not in scope</p>
+                                        </div>
+                                        <div class="form-group">
+                                        	<h4>Enter estimated hours of project?</h4>
+								            <div class="form-group col-lg-6 clearfix input-group add-on">
+								                <input class="form-control" type="number" placeholder="Project Hours" id="projectHours" value="">
+							                  	<div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Hours
+										            </button>
+									        	</div>
+									        </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <h4>Enter estimated duration of project in months?</h4>
+								            <div class="form-group col-lg-6 clearfix input-group add-on">
+								                <input class="form-control" type="number" placeholder="Duration" id="projectMonths" value="">
+							                  	<div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Months
+										            </button>
+									        	</div>
+									        </div>
+                                        </div>
+                                        <div class="form-group col-lg-5 col-xs-offset-7 clearfix input-group">
+								            <button type="button" id="proceed" class="btn btn-primary btn-sm btn-block">Calculate</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                            	</div>
+                            	<div class="col-lg-4" id="calcMdmDiv" hidden="display: none;">
+                            		<div class="well">
+	                            		<div class="form-group">
+	                                        <h4>Monthly Burn Rate</h4>
+						            		<div class="form-group col-lg-6 clearfix input-group add-on">
+								                <input class="form-control" type="number" id="mbr" value="" disabled="disabled">
+							                  	<div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Hours
+										            </button>
+									        	</div>
+									        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <h4>Required headcount</h4>
+						            		<div class="form-group col-lg-6 clearfix input-group">
+								                <input class="form-control" type="number" id="headcount" value="" disabled="disabled">
+								                <div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Resources
+										            </button>
+									        	</div>
+									        </div>
+	                                    </div>
+                                    </div>
+                                    <div class="well-white" style="padding-top:20px; padding-bottom:6px">
+                                    	<div class="row">
+		                                	<div class="form-group col-xs-3 clearfix"><h5>Manager</h5></div>
+		                                	<div class="form-group col-xs-4 clearfix">
+			                                	<!-- div class="numSpinner" data-name="manager" data-value="0" data-id="1"></div -->
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="manager" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                FTE
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+										    <div class="form-group col-xs-5 clearfix">
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="managerHours" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                Hours
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+		                            	</div>
+	                                    <div class="row" style="padding-top:6px; padding-bottom:6px">
+		                                	<div class="form-group col-xs-3 clearfix"><h5>Tech Lead</h5></div>
+		                                	<div class="form-group col-xs-4 clearfix">
+			                                	<!-- div class="numSpinner" data-name="tl" data-value="0" data-id="1"></div -->
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="tl" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                FTE
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+										    <div class="form-group col-xs-5 clearfix">
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="tlHours" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                Hours
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+		                            	</div>
+		                            	<div class="row" style="padding-top:6px; padding-bottom:6px">
+		                                	<div class="form-group col-xs-3 clearfix"><h5>Analyst</h5></div>
+		                                	<div class="form-group col-xs-4 clearfix">
+			                                	<!-- div class="numSpinner" data-name="ba" data-value="0" data-id="1"></div -->
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="ba" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                FTE
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+										    <div class="form-group col-xs-5 clearfix">
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="baHours" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                Hours
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+		                            	</div>
+		                            	<div class="row" style="padding-top:6px; padding-bottom:6px">
+		                                	<div class="form-group col-xs-3 clearfix"><h5>Tester</h5></div>
+		                                	<div class="form-group col-xs-4 clearfix">
+			                                	<!-- div class="numSpinner" data-name="tester" data-value="0" data-id="1"></div -->
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="tester" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                FTE
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+										    <div class="form-group col-xs-5 clearfix">
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="testerHours" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                Hours
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+		                            	</div>
+		                            	<div class="row" style="padding-top:6px; padding-bottom:6px">
+		                                	<div class="form-group col-xs-3 clearfix"><h5>Developer</h5></div>
+		                                	<div class="form-group col-xs-4 clearfix">
+			                                	<!-- div class="numSpinner" data-name="developer" data-value="0" data-id="1"></div -->
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="developer" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                FTE
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+										    <div class="form-group col-xs-5 clearfix">
+			                                	<div class="form-group col-xs-12 clearfix input-group add-on">
+			                                		<input class="form-control" type="text" id="developerHours" value="" disabled="disabled">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                Hours
+											            </button>
+											        </div>
+										        </div>
+										    </div>
+		                            	</div>
+                                    </div>
+                            	</div>
+                            	<div class="col-lg-4" id="calcMdmCostDiv" hidden="display: none;">
+                            		<div class="well-white">
+                            			<div class="row">
+		                                	<div class="form-group col-xs-5"><h4>Total Cost</h4></div>
+		                                	<div class="form-group col-xs-6">
+			                                	<div class="form-group col-xs-12 input-group add-on">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                <i class="glyphicon glyphicon-usd"></i>
+											            </button>
+											        </div>
+		                                			<input class="form-control" id="mdmTotalCost" value="" disabled="disabled">
+										        </div>
+										    </div>
+		                            	</div>
+                            		</div>
+                            	</div>
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+            </div>
+            <!-- /.row -->
+            <div class="row" id="riDiv" hidden="display: none;">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+			                    <div class="form-group col-lg-3 clearfix">Resource Infusion</div>
+	                            <div class="form-group col-lg-2 col-lg-offset-10 clearfix input-group" style="padding-right:10px;padding-left:10px">
+	                            	<button type="button" id="mdmDivButton" class="btn btn-sm btn-block">Managed Delivery Model</button>
+	                            </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                            	<div class="col-lg-4">
+                                	<div class="well-white">
+                                    <form role="form">
+                                        <div class="form-group">
+                                        	<h4>Enter the expected team size?</h4>
+								            <div class="form-group col-lg-6 clearfix input-group add-on">
+								                <input class="form-control" type="number" placeholder="Headcount" id="riTeamSize" value="">
+							                  	<div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Resources
+										            </button>
+									        	</div>
+									        </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <h4>Enter estimated duration of project in months?</h4>
+								            <div class="form-group col-lg-6 clearfix input-group add-on">
+								                <input class="form-control" type="number" placeholder="Duration" id="riProjectMonths" value="">
+							                  	<div class="input-group-btn">
+										            <button class="btn btn-default disabled">
+										                Months
+										            </button>
+									        	</div>
+									        </div>
+                                        </div>
+                                        <div class="form-group col-lg-5 col-xs-offset-7 clearfix input-group">
+								            <button type="button" id="riProceed" class="btn btn-primary btn-sm btn-block">Calculate</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                            	</div>
+                            	<div class="col-lg-4" id="calcRiDiv" hidden="display: none;">
+                            		<div class="well">
+	                            		<div class="row">
+		                                	<div class="form-group col-xs-5"><h4>Labour Cost</h4></div>
+		                                	<div class="form-group col-xs-6">
+			                                	<div class="form-group col-xs-12 input-group add-on">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                <i class="glyphicon glyphicon-usd"></i>
+											            </button>
+											        </div>
+		                                			<input class="form-control" id="labourCost" value="" disabled="disabled">
+										        </div>
+										    </div>
+		                            	</div>
+		                            	<div class="row">
+		                                	<div class="form-group col-xs-5"><h4>PMO Oversight Cost</h4></div>
+		                                	<div class="form-group col-xs-6">
+			                                	<div class="form-group col-xs-12 input-group add-on">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                <i class="glyphicon glyphicon-usd"></i>
+											            </button>
+											        </div>
+		                                			<input class="form-control" id="oversight" value="" disabled="disabled">
+										        </div>
+										    </div>
+		                            	</div>
+	                                    <div class="row">
+		                                	<div class="form-group col-xs-5"><h4>Total Cost</h4></div>
+		                                	<div class="form-group col-xs-6">
+			                                	<div class="form-group col-xs-12 input-group add-on">
+		                                			<div class="input-group-btn">
+											            <button class="btn btn-default disabled">
+											                <i class="glyphicon glyphicon-usd"></i>
+											            </button>
+											        </div>
+		                                			<input class="form-control" id="riTotalCost" value="" disabled="disabled">
+										        </div>
+										    </div>
+		                            	</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <!-- script src="../js/morris-data.js"></script -->
+
+	<script src="../bower_components/bootstrap/js/jshashtable-2.1.js"></script>
+	<script src="../bower_components/bootstrap/js/jquery.numberformatter-1.2.4.js"></script>
+
+	<!-- Flot Charts JavaScript -->
+    <script src="../bower_components/flot/excanvas.min.js"></script>
+    <script src="../bower_components/flot/jquery.flot.js"></script>
+    <script src="../bower_components/flot/jquery.flot.pie.js"></script>
+    <script src="../bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="../bower_components/flot/jquery.flot.time.js"></script>
+    <script src="../bower_components/flot/jquery.flot.symbol.js"></script>
+    <script src="../bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+
+    <script src="../bower_components/bootstrap/js/odc.calc.js"></script>
+    <script src="../bower_components/bootstrap/js/odc.spin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
+</body>
+
+</html>
